@@ -37,4 +37,9 @@ class Mnemonic {
   static Uint8List derivePrivateKey(List<String> words) {
     return HDNode.fromMnemonic(words).derive(0).privateKey!;
   }
+
+  ///derive private key at index 0 from seed according to BIP32.
+  static Uint8List derivePrivateKeyFromSeed(Uint8List seed) {
+    return HDNode.fromSeed(seed).derive(0).privateKey!;
+  }
 }
